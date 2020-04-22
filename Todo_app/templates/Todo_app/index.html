@@ -2,9 +2,9 @@
 
 {% block content %}
 <ol>
-    {% for items in listed %}
-    <!--items is the object id in views and listed is all the objects in views-->
-    <li><a href="details/{{items.id}}">{{items.text}}</a></li>
-    {% endfor %}
+  {% for items in listed %}
+  <!--items is the object id in views and listed is all the objects in views-->
+  <li><a href="details/{{items.id}}">{{items.text}}</a></li>
+  {% endfor %}
 </ol>
 {% endblock %}
