@@ -1,10 +1,19 @@
 {% extends 'Todo_app/base.html' %}
 
 {% block content %}
-<ol>
-  {% for items in listed %}
-  <!--items is the object id in views and listed is all the objects in views-->
-  <li><a href="details/{{items.id}}">{{items.text}}</a></li>
-  {% endfor %}
-</ol>
+<div class="row">
+  <div class="col">
+    <h2>Add item</h2>
+    <div	class="input-group">								
+      <input	type="text"	class="form-control mb-2 mr-sm-2"	placeholder="Type here...">
+  		<button type="submit" class="btn btn-primary mb-2">Submit</button>		
+    </div>	
+    <ol>
+      {% for items in listed %}
+      <!--items is the object id in views and listed is all the objects in views-->
+      <li><a href="details/{{items.id}}">{{items.text}}</a></li>
+      {% endfor %}
+    </ol>
+</div>
+</div>
 {% endblock %}
