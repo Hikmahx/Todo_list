@@ -1,13 +1,7 @@
-a{
-  color:navy;
-}
-
-.container{
-  margin-top: 20px;
+*{
   font-size: 30px;
 }
-
-li{
-  list-style-type: square;
-  
+a{
+  color:black;
 }
+

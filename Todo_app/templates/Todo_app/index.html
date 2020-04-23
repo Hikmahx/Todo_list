@@ -1,19 +1,29 @@
 {% extends 'Todo_app/base.html' %}
 
 {% block content %}
-<div class="row">
+
+<div class="row mt-4">
   <div class="col">
-    <h2>Add item</h2>
-    <div	class="input-group">								
-      <input	type="text"	class="form-control mb-2 mr-sm-2"	placeholder="Type here...">
-  		<button type="submit" class="btn btn-primary mb-2">Submit</button>		
-    </div>	
-    <ol>
+    <h2>Add item</h2>	
+    <form action="/add_item/" method="POST" class="form-inline">{% csrf_token %}						
+      <input	type="text" name="content"	class="form-control mb-2 mr-sm-2"	placeholder="Type here...">
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col">		
+    <ol class="list-group">
       {% for items in listed %}
       <!--items is the object id in views and listed is all the objects in views-->
-      <li><a href="details/{{items.id}}">{{items.text}}</a></li>
+      <li class="list-group-item"><a href="details/{{items.id}}">{{items.text}}</a>
+      
+      </li>
       {% endfor %}
     </ol>
+ </div>
 </div>
-</div>
+
+
+
 {% endblock %}
