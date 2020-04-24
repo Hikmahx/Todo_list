@@ -4,7 +4,9 @@
 
 <div class="row mt-4">
   <div class="col">
-    <h2>Add item</h2>	
+    <div class= "h2">
+      <h2>Add item</h2>
+    </div>	
     <form action="/add_item/" method="POST" class="form-inline">{% csrf_token %}						
       <input	type="text" name="content"	class="form-control mb-2 mr-sm-2"	placeholder="Type here...">
       <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -17,7 +19,11 @@
       {% for items in listed %}
       <!--items is the object id in views and listed is all the objects in views-->
       <li class="list-group-item"><a href="details/{{items.id}}">{{items.text}}</a>
-      
+        <div class="float-right">
+          <form action="delete_todo/{{items.id}}" method="POST">
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+        </div>
       </li>
       {% endfor %}
     </ol>

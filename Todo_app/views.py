@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 from .models import Todo
 
 # Create your views here.
@@ -24,3 +25,8 @@ def add_item(request):
     content = request.POST["content"]#from name(content) in form, request.POST shows/post a request, ie returns a dict of the content input by the user {content: input data}
     created_object=Todo.objects.create(added_date=current_date, text=content)#to create new instances of Todo class
     return HttpResponseRedirect("/")#to go back to home/index page after creating instance
+
+@csrf_exempt
+def delete_item(request, id):
+    Todo.objects.get(id=id).delete()
+    return HttpResponseRedirect("/")
